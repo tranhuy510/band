@@ -93,8 +93,6 @@ html {
 }
 
 /* Main */
-#main {
-}
 
 #header {
   height: 46.5px;
@@ -224,8 +222,6 @@ html {
   text-shadow: 0 0 1px #000;
 }
 
-#content {
-}
 /* About */
 #content .section-content {
   width: 800px;
