@@ -16,6 +16,7 @@
       rel="stylesheet"
       href="./assets/fonts/themify-icons/themify-icons.css"
     />
+    <script defer src="./assets/script.js"></script>
   </head>
   <body>
     <div id="main">
@@ -295,67 +296,5 @@
         </footer>
       </div>
     </div>
-
-    <script>
-      var header = document.getElementById("header");
-      var mobileMenu = document.getElementById("mobile-menu");
-      var headerHeight = header.clientHeight;
-
-      // Đóng/mở mobile menu
-      mobileMenu.onclick = function () {
-        var isClose = header.clientHeight === headerHeight;
-        if (isClose) {
-          header.style.height = "auto";
-        } else {
-          header.style.height = null;
-        }
-      };
-
-      // Tự động đóng khi chọn menu
-      var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
-      for (const menuItem of menuItems) {
-        menuItem.onclick = function (event) {
-          var isParentMenu =
-            this.nextElementSibling &&
-            this.nextElementSibling.classList.contains("subnav");
-          if (isParentMenu) {
-            event.preventDefault();
-          } else {
-            header.style.height = null;
-          }
-        };
-      }
-    </script>
-
-    <script>
-      const buyBtns = document.querySelectorAll(".js-buy-ticket");
-      const modal = document.querySelector(".js-modal");
-      const modalClose = document.querySelector(".js-modal-close");
-      const modalContainer = document.querySelector(".js-modal-container");
-
-      // Hàm hiển thị modal mua vé (thêm class open vào modal)
-      function showModalTicket() {
-        modal.classList.add("open");
-      }
-
-      // Hàm ẩn modal mua vé (gỡ bỏ class open của modal)
-      function hideModalTicket() {
-        modal.classList.remove("open");
-      }
-
-      // Lặp qua từng thẻ Button và nghe hành vi click
-      for (const buyBtn of buyBtns) {
-        buyBtn.addEventListener("click", showModalTicket);
-      }
-
-      // Nghe hành vi click và button close
-      modalClose.addEventListener("click", hideModalTicket);
-
-      modal.addEventListener("click", hideModalTicket);
-
-      modalContainer.addEventListener("click", function (event) {
-        event.stopPropagation();
-      });
-    </script>
   </body>
 </html>
